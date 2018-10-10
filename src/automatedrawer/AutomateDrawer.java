@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author reves
+ * @author Robert Elizalde
  */
 public class AutomateDrawer {
     /**
