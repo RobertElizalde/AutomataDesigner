@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author reves
+ * @author Robert Elizalde
  */
 public class Drawer extends JPanel{
     private ArrayList<State> st;
