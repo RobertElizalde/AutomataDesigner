@@ -72,6 +72,7 @@ public class State {
         //Y equals
         if(yR==getY()){
             y = yR;
+            System.out.println("igual");
         }
         // y = (int)(Math.random()*(this.maxYRange - this.minYRange + 1)) + this.minYRange;
         int x;
