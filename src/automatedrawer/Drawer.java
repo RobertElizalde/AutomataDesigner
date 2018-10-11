@@ -29,21 +29,25 @@ public class Drawer extends JPanel{
         int a2ConnectionPoint[] = null;
         int rxa1 = 0;
         int rxa2 = 0;
+        int rya1 = 0;
+        int rya2 = 0;
         
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
                 rxa1 = st.get(i).getX();
+                rya1 = st.get(i).getY();
             }
             if (st.get(i).getId().equals(a2Id)){
                 rxa2 = st.get(i).getX();
+                rya2 = st.get(i).getY();
             }
         }
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
-                a1ConnectionPoint = st.get(i).getPointOfConnection(rxa2);
+                a1ConnectionPoint = st.get(i).getPointOfConnection(rxa2, rya2);
             }
             if (st.get(i).getId().equals(a2Id)){
-                a2ConnectionPoint = st.get(i).getPointOfConnection(rxa1);
+                a2ConnectionPoint = st.get(i).getPointOfConnection(rxa1, rya1);
             }
         }
         if (a1ConnectionPoint != null && a2ConnectionPoint != null ) {
@@ -56,21 +60,25 @@ public class Drawer extends JPanel{
         int a2ConnectionPoint[] = null;
         int rxa1 = 0;
         int rxa2 = 0;
+        int rya1 = 0;
+        int rya2 = 0;
         
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
                 rxa1 = st.get(i).getX();
+                rya1 = st.get(i).getY();
             }
             if (st.get(i).getId().equals(a2Id)){
                 rxa2 = st.get(i).getX();
+                rya2 = st.get(i).getY();
             }
         }
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
-                a1ConnectionPoint = st.get(i).getPointOfConnection(rxa2);
+                a1ConnectionPoint = st.get(i).getPointOfConnection(rxa2, rya2);
             }
             if (st.get(i).getId().equals(a2Id)){
-                a2ConnectionPoint = st.get(i).getPointOfConnection(rxa1);
+                a2ConnectionPoint = st.get(i).getPointOfConnection(rxa1, rya1);
             }
         }
         if (a1ConnectionPoint != null && a2ConnectionPoint != null ) {
