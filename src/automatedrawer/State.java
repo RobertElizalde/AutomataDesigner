@@ -30,7 +30,7 @@ public class State {
     public int getY() {
         return y - d/2;
     }
-    public int gerD(){
+    public int getD(){
         return d;
     }
 
@@ -62,21 +62,31 @@ public class State {
         int y = getY();
         System.out.println("yR=" + yR + " y getY()=" + getY() );
         //Above the state 
-        if (yR < getY()){
-            y = (int)(Math.random()*(getY() - this.minYRange + 1)) + this.minYRange;
+        if (xR != this.x) {
+            if (yR < this.y){
+                y = (int)(Math.random()*(this.y - this.minYRange + 1)) + this.minYRange;
+            }
+            //Down the state
+            if(yR > this.y){
+                y = (int)(Math.random()*(this.maxYRange - this.y + 1)) + this.y;
+            }
+            //Y equals
+            if(yR==this.y){
+                y = yR;
+                System.out.println("igual");
+            }
         }
-        //Down the state
-        if(yR > getY()){
-            y = (int)(Math.random()*(this.maxYRange - getY() + 1)) + getY();
-        }
-        //Y equals
-        if(yR==getY()){
-            y = yR;
-            System.out.println("igual");
+        else{
+            if (yR < this.y) {
+                y = this.minYRange;
+            }
+            else{
+                y = this.maxYRange;
+            }
         }
         // y = (int)(Math.random()*(this.maxYRange - this.minYRange + 1)) + this.minYRange;
         int x;
-        if (xR < getX()) {
+        if (xR < this.x) {
             x = -(int)Math.sqrt((d/2)*(d/2) - (y-this.y)*(y-this.y)) + (this.x);
         }
         else{

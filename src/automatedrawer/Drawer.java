@@ -14,11 +14,11 @@ import javax.swing.JPanel;
  * @author Robert Elizalde
  */
 public class Drawer extends JPanel{
-    private ArrayList<State> st;
-    private ArrayList<Arrow> ar;
+    private final ArrayList<State> st;
+    private final ArrayList<Arrow> ar;
     public Drawer(){
-        this.st = new ArrayList<State>();
-        this.ar = new ArrayList<Arrow>();
+        this.st = new ArrayList<>();
+        this.ar = new ArrayList<>();
     }
     public void addState(int x, int y, int r, String id){
         st.add(new State(x, y, r, id));
@@ -65,12 +65,12 @@ public class Drawer extends JPanel{
         
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
-                rxa1 = st.get(i).getX();
-                rya1 = st.get(i).getY();
+                rxa1 = st.get(i).getX() + st.get(i).getD()/2;
+                rya1 = st.get(i).getY() + st.get(i).getD()/2;
             }
             if (st.get(i).getId().equals(a2Id)){
-                rxa2 = st.get(i).getX();
-                rya2 = st.get(i).getY();
+                rxa2 = st.get(i).getX() + st.get(i).getD()/2;
+                rya2 = st.get(i).getY() + st.get(i).getD()/2;
             }
         }
         for (int i = 0; i < st.size(); i++) {
@@ -91,7 +91,7 @@ public class Drawer extends JPanel{
         g2.setColor(Color.red);
         g2.setStroke( new BasicStroke( 3.0f ) );
         for (int i = 0; i < this.st.size(); i++) {
-            g2.drawOval(st.get(i).getX(), st.get(i).getY(), st.get(i).gerD(), st.get(i).gerD());
+            g2.drawOval(st.get(i).getX(), st.get(i).getY(), st.get(i).getD(), st.get(i).getD());
             g2.drawString(st.get(i).getId(), st.get(i).getIdX(), st.get(i).getIdY());
         }
         
