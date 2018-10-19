@@ -62,17 +62,27 @@ public class Drawer extends JPanel{
         int rxa2 = 0;
         int rya1 = 0;
         int rya2 = 0;
+        int stateIndex1 = 0, stateIndex2 = 0;
+        boolean state1Found = false, state2Found = false;
         
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
                 rxa1 = st.get(i).getX() + st.get(i).getD()/2;
                 rya1 = st.get(i).getY() + st.get(i).getD()/2;
+                stateIndex1 = i;
+                state1Found = true;
             }
             if (st.get(i).getId().equals(a2Id)){
                 rxa2 = st.get(i).getX() + st.get(i).getD()/2;
                 rya2 = st.get(i).getY() + st.get(i).getD()/2;
+                stateIndex2 = i;
+                state2Found = true;
             }
         }
+        
+        if (state1Found && state2Found)
+            st.get(stateIndex1).addNewConnection(st.get(stateIndex2));
+        
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
                 a1ConnectionPoint = st.get(i).getPointOfConnection(rxa2, rya2);
