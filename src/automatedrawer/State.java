@@ -15,7 +15,7 @@ public class State {
     private int idY;
     private int minYRange;
     private int maxYRange;
-    private ArrayList<State> connections;
+    private ArrayList<String> connections;
     public State(int x, int y, int d, String id){
         this.x = x;
         this.y = y;
@@ -50,13 +50,13 @@ public class State {
     public int getIdY() {
         return idY;
     }
-    public ArrayList<State> getConnections(){
+    public ArrayList<String> getConnections(){
         return this.connections;
     }
-    public void addNewConnection(State connectedState){
+    public void addNewConnection(String connectedState){
         boolean isConnected = false;
         for (int i = 0; i < this.connections.size(); i++) {
-            if (connectedState.getId().equals(this.connections.get(i))) {
+            if (connections.get(i).equals(connectedState)) {
                 isConnected = true;
                 break;
             }

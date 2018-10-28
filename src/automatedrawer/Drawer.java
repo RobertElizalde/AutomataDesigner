@@ -24,6 +24,14 @@ public class Drawer extends JPanel{
         st.add(new State(x, y, r, id));
         repaint();
     }
+    public ArrayList<String> getConnectionsOfState(String stateID){
+        for (int i = 0; i < st.size(); i++) {
+            if (st.get(i).getId().equals(stateID)) {
+                return st.get(i).getConnections();
+            }
+        }
+        return null;
+    }
     public void connectStates(String a1Id, String a2Id){
         int a1ConnectionPoint[] = null;
         int a2ConnectionPoint[] = null;
@@ -81,7 +89,7 @@ public class Drawer extends JPanel{
         }
         
         if (state1Found && state2Found)
-            st.get(stateIndex1).addNewConnection(st.get(stateIndex2));
+            st.get(stateIndex1).addNewConnection(st.get(stateIndex2).getId());
         
         for (int i = 0; i < st.size(); i++) {
             if (st.get(i).getId().equals(a1Id)) {
