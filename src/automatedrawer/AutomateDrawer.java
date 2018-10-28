@@ -1,6 +1,7 @@
 package automatedrawer;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -26,6 +27,10 @@ public class AutomateDrawer {
         dr.connectStates("q1","q5","0");
         dr.connectStates("q2","q4","0");
         dr.connectStates("q5","q3","1");
+        ArrayList<String> conexions = dr.getConnectionsOfState("q1");
+        for (int i = 0; i < conexions.size(); i++) {
+            System.out.println(conexions.get(i));
+        }
         fm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fm.setSize(400, 400);
         fm.setBackground(Color.yellow);
