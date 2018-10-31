@@ -16,6 +16,8 @@ public class State {
     private int minYRange;
     private int maxYRange;
     private ArrayList<String> connections;
+    
+    
     public State(int x, int y, int d, String id){
         this.x = x;
         this.y = y;
@@ -76,6 +78,14 @@ public class State {
         int x = (int)Math.sqrt((d/2)*(d/2) - (y-this.y)*(y-this.y)) + (this.x);
         pointOfConnection[0] = x;
         pointOfConnection[1] = y;
+        return pointOfConnection;
+    }
+    
+    public int[] getPointOfConnectionToItself(){
+        int pointOfConnection[] = new int[2];
+        pointOfConnection[0] = this.x;
+        pointOfConnection[1] = this.y - this.d/2;
+        
         return pointOfConnection;
     }
     
